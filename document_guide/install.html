@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. 環境構築方法 &mdash; **** 0.1 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="2. reStructuredTextの構文" href="instruction.html" />
+    <link rel="prev" title="Indices and tables" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ****
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sphinx 入門</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. 環境構築方法</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.1. インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">1.2. 使い方</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#html">1.3. htmlテーマの変更</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conf">1.4. 参考(conf.py)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="instruction.html">2. reStructuredTextの構文</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">3. Appendix</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Docstring 入門</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docstring_guide/install.html">1. 使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docstring_guide/google_style_guide.html">2. Googleスタイル</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">****</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>環境構築方法</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/document_guide/install.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">1. </span>環境構築方法<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Sphinxを実行するにはPython3.6以降が必要。</p>
+<div class="section" id="id2">
+<h2><span class="section-number">1.1. </span>インストール<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>condaかpipからインストールする。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">sphinx</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">1.2. </span>使い方<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><strong>[1] Sphinxのドキュメントセットを生成</strong></p>
+<p>任意のディレクトリ(ここでは<strong>root</strong>)で以下の様にコマンドを打つ。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;sphinx-quickstart root
+
+途中で以下のような設定項目が現れるので適当に設定する(後で変更可)。
+
+- Project name：{プロジェクト名}
+- Author name：{著者名}
+- Project release []：{リリースバージョン}
+- Project language [en]：ja →日本語変更
+</pre></div>
+</div>
+<p>上記の設定が終わると以下のようなディレクトリ構造のフォルダ/ファイル群が生成される。</p>
+<a class="reference internal image-reference" href="../_images/start_dir.png"><img alt="../_images/start_dir.png" src="../_images/start_dir.png" style="width: 278.0px; height: 202.0px;" /></a>
+<p><strong>[2] ドキュメントの記述</strong></p>
+<div class="line-block">
+<div class="line">rstファイルを作成し、ドキュメントを記述する。</div>
+<div class="line">rstファイルはreStructuredText言語で記述されたファイル。</div>
+<div class="line">rstファイルは<strong>source</strong>フォルダ内に適当にディレクトリ階層を構築したりなどして配置できる。</div>
+</div>
+<p><strong>[3] conf.pyの設定</strong></p>
+<div class="line-block">
+<div class="line">必要であれば設定を変更/追加する(特に設定しなくてもビルドはできる)。</div>
+<div class="line">ドキュメントセット生成時の情報も変更可(本ドキュメントの設定は「<a class="reference internal" href="#conf"><span class="std std-ref">参考(conf.py)</span></a>」を参照)。</div>
+<div class="line">以下に設定例を示す。詳細は<a class="reference external" href="https://www.sphinx-doc.org/ja/stable/config.html">ビルド設定ファイル(conf.py)</a>を参照。</div>
+</div>
+<p>プロジェクト情報を設定</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># -- Project information --
+project = &quot;{プロジェクト名}&quot;
+copyright = &quot;{西暦}, {著者名}&quot;
+author = &quot;{著者名}&quot;
+※その他の設定項目
+version, release など
+</pre></div>
+</div>
+<p>言語を設定</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">language</span> <span class="o">=</span> <span class="s1">&#39;ja&#39;</span>
+</pre></div>
+</div>
+<p>テーマを設定</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;sphinx_rtd_theme&#39;</span>
+</pre></div>
+</div>
+<p>ビルド時の生成ファイル名は以下のようにして指定できる</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># -- document name -----------------------------------------------------</span>
+
+<span class="n">master_doc</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{ファイル名}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p><strong>[4] index.rstの設定</strong></p>
+<div class="line-block">
+<div class="line">rstファイルの読み込みとドキュメント内のツリー構造などを設定できる。</div>
+<div class="line">例えば本ドキュメントの設定は以下の様になっている。</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. **** documentation master file, created by
+   sphinx-quickstart on Thu Apr  9 11:26:00 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Sphinx 入門
+   :numbered: 3
+
+   /document_guide/install
+   /document_guide/instruction
+   /document_guide/appendix
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Docstring 入門
+   :numbered: 3
+
+   /docstring_guide/install
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+</pre></div>
+</div>
+<p>項目の説明例は以下の通り。<a class="reference external" href="https://www.sphinx-doc.org/ja/stable/markup/toctree.html">細かい設定はここを参照</a>。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. **** docum...　→デフォルトで生成されたコメント(アウト)
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. toctree::　　　　→ ドキュメントを構成するファイル群の関係を指定
+   :maxdepth: 2　　→ 目次ページに表示するセクションの深さ
+   :numbered: 3　　→ 表示するセクション番号の深さ
+   :caption: {キャプション}　　→ rstファイル単位で付ける目次名
+   :name: {名前}　　→ refで参照するためのアンカーを指定
+   :titlesonly:　　→ 目次ページはタイトルだけを表示
+   :glob:　　　　　→ ワイルドカードでrstファイルを読み込む
+   :hidden:　　　　→ 目次ページの目次を非表示
+
+   /*/{rstファイル名1} → 作成したドキュメント
+   /*/{rstファイル名2} → 作成したドキュメント
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Indices and tables　→目次ページのキャプション(デフォルトで生成される)
+==================
+
+* :ref:`genindex`　→索引の表示(デフォルトで生成される)
+</pre></div>
+</div>
+<p><strong>[5] htmlの生成</strong></p>
+<div class="line-block">
+<div class="line">以下の様にコマンドを打つ。</div>
+<div class="line">出力先は<strong>build</strong>フォルダ内。</div>
+<div class="line"><a class="reference external" href="https://www.sphinx-doc.org/ja/stable/man/sphinx-build.html">sphinx-buildコマンドのオプションはここ</a></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>方法１
+&gt;make html
+
+※make htmlコマンドは Makefile と make.bat があるディレクトリで実行する必要がある。
+※helpとしてmakeだけ打つと make {option} の指定一覧が確認できる
+
+方法２
+&gt;sphinx-build -a ./source ./build/html
+&gt;sphinx-build -a {ソースディレクトリ} {出力先}
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>make htmlではツリー構造が更新されない場合がある。その場合は、htmlフォルダを削除し作成し直す。
+あるいは<code class="docutils literal notranslate"><span class="pre">sphinx-build</span> <span class="pre">-a</span> <span class="pre">./source</span> <span class="pre">./build/html</span></code>コマンドで上書きする。</p>
+</div>
+</div>
+<div class="section" id="html">
+<h2><span class="section-number">1.3. </span>htmlテーマの変更<a class="headerlink" href="#html" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">conf.pyのhtml_themeを指定する。</div>
+<div class="line">デフォルトでもいくつか指定できるが、</div>
+<div class="line">サードパティー製のテーマは別途インストールが必要(テーマは<a class="reference external" href="https://sphinx-themes.org//">ここ</a>などを参照)。</div>
+</div>
+<p>今使っているのは「sphinx_rtd_theme」</p>
+<p>インストール</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">sphinx_rtd_theme</span>
+</pre></div>
+</div>
+<p>設定</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;sphinx_rtd_theme&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>conf.pyにhtml_sidebarsが設定されている場合、テーマによってはエラーが発生するかもしれない。
+その場合、エラーを回避するためにコメントアウトする。</p>
+</div>
+</div>
+<div class="section" id="conf">
+<span id="id6"></span><h2><span class="section-number">1.4. </span>参考(conf.py)<a class="headerlink" href="#conf" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>本ドキュメントのconfは以下のようになっている。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuration file for the Sphinx documentation builder.</span>
+<span class="c1">#</span>
+<span class="c1"># This file only contains a selection of the most common options. For a full</span>
+<span class="c1"># list see the documentation:</span>
+<span class="c1"># https://www.sphinx-doc.org/en/master/usage/configuration.html</span>
+
+<span class="c1"># -- Path setup --------------------------------------------------------------</span>
+
+<span class="c1"># If extensions (or modules to document with autodoc) are in another directory,</span>
+<span class="c1"># add these directories to sys.path here. If the directory is relative to the</span>
+<span class="c1"># documentation root, use os.path.abspath to make it absolute, like shown here.</span>
+<span class="c1">#</span>
+<span class="c1"># import os</span>
+<span class="c1"># import sys</span>
+<span class="c1"># sys.path.insert(0, os.path.abspath(&#39;.&#39;))</span>
+
+
+<span class="c1"># -- Project information -----------------------------------------------------</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="s1">&#39;****&#39;</span>
+<span class="n">copyright</span> <span class="o">=</span> <span class="s1">&#39;2020, @***&#39;</span>
+<span class="n">author</span> <span class="o">=</span> <span class="s1">&#39;@***&#39;</span>
+
+<span class="c1"># The full version, including alpha/beta/rc tags</span>
+<span class="n">release</span> <span class="o">=</span> <span class="s1">&#39;0.1&#39;</span>
+
+
+<span class="c1"># -- General configuration ---------------------------------------------------</span>
+
+<span class="c1"># Add any Sphinx extension module names here, as strings. They can be</span>
+<span class="c1"># extensions coming with Sphinx (named &#39;sphinx.ext.*&#39;) or your custom</span>
+<span class="c1"># ones.</span>
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;sphinx.ext.todo&#39;</span>
+<span class="p">]</span>
+
+<span class="c1"># ToDo 項目を表示する (デフォルトは表示しない; False)</span>
+<span class="n">todo_include_todos</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Add any paths that contain templates here, relative to this directory.</span>
+<span class="n">templates_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_templates&#39;</span><span class="p">]</span>
+
+<span class="c1"># The language for content autogenerated by Sphinx. Refer to documentation</span>
+<span class="c1"># for a list of supported languages.</span>
+<span class="c1">#</span>
+<span class="c1"># This is also used if you do content translation via gettext catalogs.</span>
+<span class="c1"># Usually you set &quot;language&quot; from the command line for these cases.</span>
+<span class="n">language</span> <span class="o">=</span> <span class="s1">&#39;ja&#39;</span>
+
+<span class="c1"># List of patterns, relative to source directory, that match files and</span>
+<span class="c1"># directories to ignore when looking for source files.</span>
+<span class="c1"># This pattern also affects html_static_path and html_extra_path.</span>
+<span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="c1"># -- Options for HTML output -------------------------------------------------</span>
+
+<span class="c1"># The theme to use for HTML and HTML Help pages.  See the documentation for</span>
+<span class="c1"># a list of builtin themes.</span>
+<span class="c1">#</span>
+<span class="c1">#html_theme = &#39;alabaster&#39;</span>
+<span class="c1"># html_theme = &#39;classic&#39;</span>
+<span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;sphinx_rtd_theme&quot;</span>
+
+<span class="c1"># Add any paths that contain custom static files (such as style sheets) here,</span>
+<span class="c1"># relative to this directory. They are copied after the builtin static files,</span>
+<span class="c1"># so a file named &quot;default.css&quot; will overwrite the builtin &quot;default.css&quot;.</span>
+<span class="n">html_static_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_static&#39;</span><span class="p">]</span>
+
+<span class="c1"># 図番号の設定</span>
+<span class="n">numfig</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="instruction.html" class="btn btn-neutral float-right" title="2. reStructuredTextの構文" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Indices and tables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, @***
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

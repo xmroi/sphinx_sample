@@ -1,0 +1,1069 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. reStructuredTextの構文 &mdash; **** 0.1 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="3. Appendix" href="appendix.html" />
+    <link rel="prev" title="1. 環境構築方法" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ****
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sphinx 入門</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">1. 環境構築方法</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. reStructuredTextの構文</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2.1. セクション構造</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2.1.1. 「セクション構造」セクションのサブセクション</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">2.2. リスト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">2.3. 改行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">2.4. インラインマークアップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">2.5. リテラルブロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">2.6. コメントアウト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">2.7. 空行追加</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#link">2.8. リンク</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id10">2.8.1. 内部リンク</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">2.8.2. 外部リンク</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">2.9. 用語の定義</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">2.10. ファイルの定義</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">2.11. タイトルリファレンス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#todo">2.12. ToDoを残す</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">2.13. 注釈・警告の挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">2.14. 脚注</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id21">2.15. 引用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id23">2.16. 用語集</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id24">2.16.1. 索引への反映方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id25">2.17. 画像挿入</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id26">2.17.1. 図番号の自動割り振りとリンク</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">2.17.2. キャプションへのリンク</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">2.17.3. 文章中への画像の埋め込み</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id29">2.18. 表挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id30">2.19. 数式挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id31">2.20. コードサンプルの表示</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">3. Appendix</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Docstring 入門</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docstring_guide/install.html">1. 使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docstring_guide/google_style_guide.html">2. Googleスタイル</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">****</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">2. </span>reStructuredTextの構文</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/document_guide/instruction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="restructuredtext">
+<h1><span class="section-number">2. </span>reStructuredTextの構文<a class="headerlink" href="#restructuredtext" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>構文の確認は右上のView page sourceからでも出来るよ</p>
+<div class="section" id="id1">
+<h2><span class="section-number">2.1. </span>セクション構造<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">セクションを定義する記号は「= - ` : ' &quot; ~ ^ _ * + #」の中から好きに選択。</div>
+</div>
+<div class="section" id="id2">
+<h3><span class="section-number">2.1.1. </span>「セクション構造」セクションのサブセクション<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><strong>構文</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>セクション構造
+==================================================
+
+「セクション構造」セクションのサブセクション
+--------------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">2.2. </span>リスト<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><strong>構文</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">aaa</span>
+<span class="o">-</span> <span class="n">bbb</span>
+<span class="o">-</span> <span class="n">ccc</span>
+</pre></div>
+</div>
+<p><strong>出力</strong></p>
+<ul class="simple">
+<li><p>aaa</p></li>
+<li><p>bbb</p></li>
+<li><p>ccc</p></li>
+</ul>
+<p>他の使い方。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">aaa</span>
+<span class="o">*</span> <span class="n">bbb</span>
+<span class="o">*</span> <span class="n">ccc</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>aaa</p></li>
+<li><p>bbb</p></li>
+<li><p>ccc</p></li>
+</ul>
+<p><strong>数字付きリスト</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">aaa</span>
+<span class="mf">2.</span> <span class="n">bbb</span>
+<span class="c1">#. ccc(番号の自動振り分け)</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>aaa</p></li>
+<li><p>bbb</p></li>
+<li><p>ccc</p></li>
+</ol>
+<p><strong>入れ子とかいろいろ</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">あ</span><span class="o">.</span> <span class="n">aaa</span>
+
+    <span class="n">A</span><span class="o">.</span> <span class="n">aaa</span>
+    <span class="n">B</span><span class="o">.</span> <span class="n">bbb</span>
+    <span class="n">C</span><span class="o">.</span> <span class="n">ccc</span>
+
+<span class="n">い</span> <span class="n">bbb</span>
+
+    <span class="n">i</span><span class="o">.</span> <span class="n">aaa</span>
+    <span class="n">ii</span><span class="o">.</span> <span class="n">bbb</span>
+    <span class="n">iii</span><span class="o">.</span> <span class="n">ccc</span>
+
+<span class="n">う</span> <span class="n">ccc</span>
+
+    <span class="o">-</span> <span class="n">aaa</span>
+    <span class="o">-</span> <span class="n">bbb</span>
+    <span class="o">-</span> <span class="n">ccc</span>
+</pre></div>
+</div>
+<p>あ. aaa</p>
+<blockquote>
+<div><ol class="upperalpha simple">
+<li><p>aaa</p></li>
+<li><p>bbb</p></li>
+<li><p>ccc</p></li>
+</ol>
+</div></blockquote>
+<p>い bbb</p>
+<blockquote>
+<div><ol class="lowerroman simple">
+<li><p>aaa</p></li>
+<li><p>bbb</p></li>
+<li><p>ccc</p></li>
+</ol>
+</div></blockquote>
+<p>う ccc</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>aaa</p></li>
+<li><p>bbb</p></li>
+<li><p>ccc</p></li>
+</ul>
+</div></blockquote>
+<p><strong>定義リスト</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span>
+    <span class="n">sphinxsphinxsphinxsphinxsphinx</span>
+<span class="n">python</span>
+    <span class="o">|</span> <span class="n">pythonpythonpythonpythonpython</span>
+    <span class="o">|</span> <span class="n">pythonpythonpythonpythonpython</span>
+</pre></div>
+</div>
+<dl>
+<dt>sphinx</dt><dd><p>sphinxsphinxsphinxsphinxsphinx</p>
+</dd>
+<dt>python</dt><dd><div class="line-block">
+<div class="line">pythonpythonpythonpythonpython</div>
+<div class="line">pythonpythonpythonpythonpython</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">aaa</span>
+    <span class="n">aaa</span>
+<span class="o">*</span> <span class="n">bbb</span>
+    <span class="n">bbb</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt>aaa</dt><dd><p>aaa</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>bbb</dt><dd><p>bbb</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">2.3. </span>改行<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>文頭に「<code class="docutils literal notranslate"><span class="pre">|</span></code>」+「スペース」を付ける。</p>
+<p><strong>構文</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">aaa</span>
+<span class="o">|</span> <span class="n">bbb</span>
+</pre></div>
+</div>
+<p><strong>出力</strong></p>
+<div class="line-block">
+<div class="line">aaa</div>
+<div class="line">bbb</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">2.4. </span>インラインマークアップ<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>リンクは別セクションに記載</p>
+<p><strong>構文</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>| *UTF-8*：斜体
+| **強い強調**：太字
+| ``強調``：インラインリテラル
+</pre></div>
+</div>
+<p><strong>出力</strong></p>
+<div class="line-block">
+<div class="line"><em>UTF-8</em>：斜体</div>
+<div class="line"><strong>強い強調</strong>：太字</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">強調</span></code>：インラインリテラル</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">2.5. </span>リテラルブロック<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">「::」で宣言しブロックを作成する。</div>
+<div class="line">ブロック部分はインデントする必要があり、ブロック全体は空白行で前後を囲う。</div>
+</div>
+<p><strong>構文(※ダブルコロンの次に空白行が必要)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">::</span>
+    <span class="o">&gt;</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+    <span class="mi">2</span>
+</pre></div>
+</div>
+<p><strong>出力</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+<span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2><span class="section-number">2.6. </span>コメントアウト<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">「..」で始めるとコメントアウトになる。</div>
+<div class="line">次に同じインデントに戻るまでのブロックがまとめてコメントアウトされる。</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">コメントアウト</span>
+    <span class="n">次のインデントにもどるまで</span>
+    <span class="n">まとめてコメントアウトされる</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span>
+   <span class="n">これもコメントアウト</span>
+<span class="o">..</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><span class="section-number">2.7. </span>空行追加<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>「|」を使用する。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span>
+<span class="o">|</span>
+<span class="o">|</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="link">
+<span id="id9"></span><h2><span class="section-number">2.8. </span>リンク<a class="headerlink" href="#link" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><strong>スペースの非表示</strong></p>
+<div class="line-block">
+<div class="line">リンク構文の前後には「スペース」が必要。ただし、出力にもスペースが反映される。</div>
+<div class="line">スペースを表示したくない時は、スペースの前に<code class="docutils literal notranslate"><span class="pre">\</span></code>を付けておく。</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>リンク先は「 :ref:`link` 」。　　→　スペース残す
+リンク先は「\ :ref:`link`\ 」。　→　スペース消す
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">リンク先は「 <a class="reference internal" href="#link"><span class="std std-ref">リンク</span></a> 」。</div>
+<div class="line">リンク先は「<a class="reference internal" href="#link"><span class="std std-ref">リンク</span></a>」。</div>
+</div>
+<div class="section" id="id10">
+<h3><span class="section-number">2.8.1. </span>内部リンク<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line"><strong>A. クロスリファレンス</strong></div>
+<div class="line">セクション等の上部にアンカー<code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">_{ラベル}:</span></code>を配置する。</div>
+<div class="line">図表に対しても同様にアンカー出来る。</div>
+</div>
+<p><strong>アンカー付け</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">_link</span><span class="p">:</span>
+
+<span class="n">リンク</span>
+<span class="o">==================================================</span>
+</pre></div>
+</div>
+<p><strong>構文</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>リンク先は\ :ref:`link`\ 。
+:ref:`こういう書き方 &lt;link&gt;` もできる。
+こういう書き方もできる(link_)。
+</pre></div>
+</div>
+<p><strong>出力</strong></p>
+<div class="line-block">
+<div class="line">リンク先は<a class="reference internal" href="#link"><span class="std std-ref">リンク</span></a>。</div>
+<div class="line"><a class="reference internal" href="#link"><span class="std std-ref">こういう書き方</span></a> もできる。</div>
+<div class="line">こういう書き方もできる(<a class="reference internal" href="#link">link</a>)。</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>B. ドキュメントリンク</strong></div>
+<div class="line">index.rstから見た他のrstファイルの相対パスを指定する。</div>
+<div class="line">ファイルの拡張子は付けない。</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>リンク先は\ :doc:`./appendix`\ 。
+リンク先は\ :doc:`あぺんでぃっくす &lt;./appendix&gt;`\ でも指定できる。
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">リンク先は<a class="reference internal" href="appendix.html"><span class="doc">Appendix</span></a>。</div>
+<div class="line">リンク先は<a class="reference internal" href="appendix.html"><span class="doc">あぺんでぃっくす</span></a>でも指定できる。</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3><span class="section-number">2.8.2. </span>外部リンク<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><strong>構文１</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>これは\ `Google &lt;https://www.google.co.jp/&gt;`_\ へのリンクです。
+</pre></div>
+</div>
+<p><strong>出力１</strong></p>
+<p>これは<a class="reference external" href="https://www.google.co.jp/">Google</a>へのリンクです。</p>
+<p><strong>構文２</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. _Google: https://www.google.co.jp/
+
+これは\ `Google`_\ へのリンクです。
+</pre></div>
+</div>
+<p><strong>出力２</strong></p>
+<p>これは<a class="reference external" href="https://www.google.co.jp/">Google</a>へのリンクです。</p>
+</div>
+</div>
+<div class="section" id="id13">
+<h2><span class="section-number">2.9. </span>用語の定義<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><strong>方法１：文中で定義する</strong></p>
+<div class="line-block">
+<div class="line">用語を使用するときは定義語|ex1|の両端にスペースが必要。</div>
+<div class="line">(そのままだとスペースが本文に反映されてしまう。「」+「スペース」とすると)</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. |ex1| replace:: 例1
+定義した用語は「\ |ex1|\ 」。
+</pre></div>
+</div>
+<p>定義した用語は「例1」。</p>
+<p id="id14"><strong>方法２：定義した用語一覧を書いたファイルを外部から読み込む</strong></p>
+<div class="line-block">
+<div class="line">定義した用語を使いたいrstファイルと同じディレクトリに、</div>
+<div class="line">例えば「definition.txt」というファイルを置いて、</div>
+<div class="line">ファイル内には <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">|ex2|</span> <span class="pre">replace::</span> <span class="pre">例2</span></code> などと記述しておく。</div>
+<div class="line">用語を読み込みたいときはrstファイルの先頭に <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">include::</span> <span class="pre">definition.txt</span></code> を追加する。</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>定義した用語は「\ |ex2|\ 」。
+</pre></div>
+</div>
+<p>定義した用語は「例2」。</p>
+<p><strong>方法３：定義した用語一覧を書いたファイルをconf.pyから設定し読み込む</strong></p>
+<div class="line-block">
+<div class="line">conf.pyに以下のように追加する。</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rst_prolog</span><span class="o">=</span> <span class="sa">u</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">.. include:: definition.txt</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>(未解決)方法３の場合、「definition.txt」の場所を以下の図の2か所に置かないと参照できない。</p>
+<div class="figure align-default" id="id32">
+<img alt="Alternate Text" src="../_images/dir_define.png" />
+<p class="caption"><span class="caption-number">図 2.1 </span><span class="caption-text">ディレクトリ構造と用語を定義した「definition.txt」ファイルの場所</span><a class="headerlink" href="#id32" title="この画像へのパーマリンク">¶</a></p>
+</div>
+</div>
+<div class="section" id="id15">
+<h2><span class="section-number">2.10. </span>ファイルの定義<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><strong>用語の定義</strong> の<a class="reference internal" href="#id14"><span class="std std-ref">方法２</span></a>で説明した通り。</p>
+</div>
+<div class="section" id="id16">
+<h2><span class="section-number">2.11. </span>タイトルリファレンス<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">タイトル１</span><span class="p">:</span> <span class="n">ほげほげ</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">タイトル１</dt>
+<dd class="field-odd"><p>ほげほげ</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="todo">
+<h2><span class="section-number">2.12. </span>ToDoを残す<a class="headerlink" href="#todo" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>conf.pyに以下の様に設定。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx.ext.todo モジュールを追加</span>
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx.ext.todo&#39;</span><span class="p">]</span>
+
+<span class="c1"># ToDo 項目を表示する(デフォルトは表示しない; False)</span>
+<span class="n">todo_include_todos</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>ToDoは以下の様に書く。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">todo</span><span class="p">::</span> <span class="n">後で書く</span>
+</pre></div>
+</div>
+<div class="admonition-todo admonition" id="id17">
+<p class="admonition-title">課題</p>
+<p>後で書く</p>
+</div>
+</div>
+<div class="section" id="id18">
+<h2><span class="section-number">2.13. </span>注釈・警告の挿入<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. note::
+   注釈です
+
+.. warning::
+   警告です！
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>注釈です</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>警告です！</p>
+</div>
+</div>
+<div class="section" id="id19">
+<h2><span class="section-number">2.14. </span>脚注<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">脚注を書きたい場所で<code class="docutils literal notranslate"><span class="pre">[#name]_</span></code>と書く。</div>
+<div class="line">nameの部分は必ずしも必要ではなく、#だけの場合は自動的に番号が振られる</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">脚注</span> <span class="p">[</span><span class="c1">#f1]_ はこんな感じです。</span>
+
+<span class="o">..</span> <span class="p">[</span><span class="c1">#f1] これが脚注です。</span>
+</pre></div>
+</div>
+<p>脚注 <a class="footnote-reference brackets" href="#f1" id="id20">1</a> はこんな感じです。</p>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id20">1</a></span></dt>
+<dd><p>これが脚注です。</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id21">
+<h2><span class="section-number">2.15. </span>引用<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>引用を付けたい場所で<code class="docutils literal notranslate"><span class="pre">[name]_</span></code>と書く。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>引用はこうする\ [Ref]_\ 。
+
+.. [Ref] 引用元。
+</pre></div>
+</div>
+<p>引用はこうする<a class="reference internal" href="#ref" id="id22"><span>[Ref]</span></a>。</p>
+<dl class="citation">
+<dt class="label" id="ref"><span class="brackets"><a class="fn-backref" href="#id22">Ref</a></span></dt>
+<dd><p>引用元。</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id23">
+<h2><span class="section-number">2.16. </span>用語集<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>定義リストとの違いは</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">一つの定義文に対して複数の用語を定義出来る。</div>
+<div class="line">索引に表示できる。</div>
+</div>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">glossary</span><span class="p">::</span>
+
+   <span class="n">environment</span>
+      <span class="n">A</span> <span class="n">structure</span> <span class="n">where</span> <span class="n">information</span> <span class="n">about</span> <span class="nb">all</span> <span class="n">documents</span> <span class="n">under</span> <span class="n">the</span> <span class="n">root</span> <span class="ow">is</span>
+      <span class="n">saved</span><span class="p">,</span> <span class="ow">and</span> <span class="n">used</span> <span class="k">for</span> <span class="n">cross</span><span class="o">-</span><span class="n">referencing</span><span class="o">.</span>  <span class="n">The</span> <span class="n">environment</span> <span class="ow">is</span> <span class="n">pickled</span>
+      <span class="n">after</span> <span class="n">the</span> <span class="n">parsing</span> <span class="n">stage</span><span class="p">,</span> <span class="n">so</span> <span class="n">that</span> <span class="n">successive</span> <span class="n">runs</span> <span class="n">only</span> <span class="n">need</span> <span class="n">to</span> <span class="n">read</span>
+      <span class="ow">and</span> <span class="n">parse</span> <span class="n">new</span> <span class="ow">and</span> <span class="n">changed</span> <span class="n">documents</span><span class="o">.</span>
+
+   <span class="n">source</span> <span class="n">directory</span>
+      <span class="n">The</span> <span class="n">directory</span> <span class="n">which</span><span class="p">,</span> <span class="n">including</span> <span class="n">its</span> <span class="n">subdirectories</span><span class="p">,</span> <span class="n">contains</span> <span class="nb">all</span>
+      <span class="n">source</span> <span class="n">files</span> <span class="k">for</span> <span class="n">one</span> <span class="n">Sphinx</span> <span class="n">project</span><span class="o">.</span>
+
+   <span class="n">term</span> <span class="mi">1</span>
+   <span class="n">term</span> <span class="mi">2</span>
+      <span class="n">Definition</span> <span class="n">of</span> <span class="n">both</span> <span class="n">terms</span><span class="o">.</span>
+</pre></div>
+</div>
+<dl class="glossary simple">
+<dt id="term-environment">environment</dt><dd><p>A structure where information about all documents under the root is
+saved, and used for cross-referencing.  The environment is pickled
+after the parsing stage, so that successive runs only need to read
+and parse new and changed documents.</p>
+</dd>
+<dt id="term-source-directory">source directory</dt><dd><p>The directory which, including its subdirectories, contains all
+source files for one Sphinx project.</p>
+</dd>
+<dt id="term-term-1">term 1</dt><dt id="term-term-2">term 2</dt><dd><p>Definition of both terms.</p>
+</dd>
+</dl>
+<div class="section" id="id24">
+<h3><span class="section-number">2.16.1. </span>索引への反映方法<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line">(環境構築時)</div>
+<div class="line">ドキュメントセットを作成した時に、自動的にindex.rstに以下の行が生成されている。</div>
+<div class="line">もし生成されていなければ、追記して用語を定義するだけで自動的に反映してくれる。</div>
+<div class="line">索引へのリンクはホームページに表示される。</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Indices and tables
+==================
+
+* :ref:`genindex`
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id25">
+<h2><span class="section-number">2.17. </span>画像挿入<a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>imageはtableなどと組み合わせることもできる。</p>
+<p><strong>構文</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">image</span><span class="p">::</span> <span class="p">{</span><span class="n">相対パス</span><span class="p">}</span>
+   <span class="p">:</span><span class="n">scale</span><span class="p">:</span> <span class="mi">60</span>
+   <span class="p">:</span><span class="n">width</span><span class="p">:</span> <span class="mi">50</span><span class="o">%</span>
+   <span class="p">:</span><span class="n">height</span><span class="p">:</span> <span class="mi">50</span><span class="o">%</span>
+   <span class="p">:</span><span class="n">align</span><span class="p">:</span> <span class="n">middle</span>
+   <span class="p">:</span><span class="n">target</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">sphinx</span><span class="o">-</span><span class="n">doc</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">ja</span><span class="o">/</span><span class="n">master</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>キャプションを付ける場合はimageをfigureに変更する。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">figure</span><span class="p">::</span> <span class="p">{</span><span class="n">相対パス</span><span class="p">}</span>
+    <span class="p">:</span><span class="n">alt</span><span class="p">:</span> <span class="n">Alternate</span> <span class="n">Text</span><span class="p">(</span><span class="n">画像の短い説明</span><span class="p">)</span>
+
+    <span class="p">{</span><span class="n">キャプション</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">パラメータは以下の通り。</div>
+</div>
+<ul class="simple">
+<li><p>scale：画像の縮尺</p></li>
+<li><p>width：横幅</p></li>
+<li><p>height：縦幅</p></li>
+<li><p>align：配置指定</p></li>
+<li><p>target：画像にリンクを貼る</p></li>
+</ul>
+<p>widthとheightは <code class="docutils literal notranslate"><span class="pre">&quot;%&quot;,</span> <span class="pre">&quot;em&quot;,</span> <span class="pre">&quot;ex&quot;,</span> <span class="pre">&quot;px&quot;,</span> <span class="pre">&quot;in&quot;,</span> <span class="pre">&quot;cm&quot;,</span> <span class="pre">&quot;mm&quot;,</span> <span class="pre">&quot;pt&quot;,</span> <span class="pre">&quot;pc&quot;</span></code> の中から選択可能
+(何も付けていない場合は <code class="docutils literal notranslate"><span class="pre">&quot;px&quot;</span></code> となる)。
+alignは <code class="docutils literal notranslate"><span class="pre">“left”,</span> <span class="pre">“center”,</span> <span class="pre">“right”</span></code> が選択可能。</p>
+<p><strong>出力</strong></p>
+<div class="figure align-default" id="graph">
+<span id="figlink"></span><img alt="Alternate Text" src="../_images/dir.png" />
+<p class="caption"><span class="caption-number">図 2.2 </span><span class="caption-text">ディレクトリ構造</span><a class="headerlink" href="#graph" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<div class="section" id="id26">
+<h3><span class="section-number">2.17.1. </span>図番号の自動割り振りとリンク<a class="headerlink" href="#id26" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line">・自動割り振り</div>
+<div class="line">conf.pyに<code class="docutils literal notranslate"><span class="pre">numfig</span> <span class="pre">=</span> <span class="pre">True</span></code>を追加設定する。</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. figure:: {相対パス}
+    :name: {ラベル}
+
+・参照方法
+こうする -&gt; :numref:`{ラベル}`
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">・参照方法</div>
+<div class="line">こうする -&gt; <a class="reference internal" href="#graph"><span class="std std-numref">図 2.2</span></a></div>
+</div>
+</div>
+<div class="section" id="id27">
+<h3><span class="section-number">2.17.2. </span>キャプションへのリンク<a class="headerlink" href="#id27" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">_FigLink</span><span class="p">:</span>
+
+<span class="o">..</span> <span class="n">figure</span><span class="p">::</span> <span class="p">{</span><span class="n">相対パス</span><span class="p">}</span>
+    <span class="p">:</span><span class="n">name</span><span class="p">:</span> <span class="n">graph</span>
+    <span class="p">:</span><span class="n">alt</span><span class="p">:</span> <span class="n">Alternate</span> <span class="n">Text</span>
+
+    <span class="n">ディレクトリ構造</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>| リンク先は「\ :ref:`FigLink`\ 」。
+| :ref:`こういう書き方 &lt;FigLink&gt;` もできる。
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">リンク先は「<a class="reference internal" href="#figlink"><span class="std std-ref">ディレクトリ構造</span></a>」。</div>
+<div class="line"><a class="reference internal" href="#figlink"><span class="std std-ref">こういう書き方</span></a> もできる。</div>
+</div>
+</div>
+<div class="section" id="id28">
+<h3><span class="section-number">2.17.3. </span>文章中への画像の埋め込み<a class="headerlink" href="#id28" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. |こうする| image:: dir.png
+
+文章中に画像を埋め込みたい場合は |こうする| 。
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id29">
+<h2><span class="section-number">2.18. </span>表挿入<a class="headerlink" href="#id29" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><strong>サンプル１</strong>：csv-table</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">csv</span><span class="o">-</span><span class="n">table</span><span class="p">::</span>
+    <span class="p">:</span><span class="n">header</span><span class="p">:</span> <span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">A</span> <span class="ow">and</span> <span class="n">B</span>
+    <span class="p">:</span><span class="n">header</span><span class="o">-</span><span class="n">rows</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">:</span><span class="n">widths</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span>
+    <span class="p">:</span><span class="n">stub</span><span class="o">-</span><span class="n">columns</span><span class="p">:</span> <span class="mi">1</span>
+
+    <span class="n">none</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span>
+    <span class="n">none</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span>
+    <span class="n">none</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span>
+    <span class="n">none</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head stub"></th>
+<th class="head"><p>A</p></th>
+<th class="head"><p>B</p></th>
+<th class="head"><p>C</p></th>
+<th class="head"><p>A and B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p>none</p></th>
+<td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>none</p></th>
+<td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>none</p></th>
+<td><p>False</p></td>
+<td><p>True</p></td>
+<td><p>False</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><th class="stub"></th>
+<td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>none</p></th>
+<td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>True</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>サンプル２</strong>：Grid table</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+------------+------------+-----------+</span>
+<span class="o">|</span> <span class="n">Header</span> <span class="mi">1</span>   <span class="o">|</span> <span class="n">Header</span> <span class="mi">2</span>   <span class="o">|</span> <span class="n">Header</span> <span class="mi">3</span>  <span class="o">|</span>
+<span class="o">+============+============+===========+</span>
+<span class="o">|</span> <span class="n">body</span> <span class="n">row</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">column</span> <span class="mi">2</span>   <span class="o">|</span> <span class="n">column</span> <span class="mi">3</span>  <span class="o">|</span>
+<span class="o">+------------+------------+-----------+</span>
+<span class="o">|</span> <span class="n">body</span> <span class="n">row</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Cells</span> <span class="n">may</span> <span class="n">span</span> <span class="n">columns</span><span class="o">.|</span>
+<span class="o">+------------+------------+-----------+</span>
+<span class="o">|</span> <span class="n">body</span> <span class="n">row</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">Cells</span> <span class="n">may</span>  <span class="o">|</span> <span class="o">-</span> <span class="n">Cells</span>   <span class="o">|</span>
+<span class="o">+------------+</span> <span class="n">span</span> <span class="n">rows</span><span class="o">.</span> <span class="o">|</span> <span class="o">-</span> <span class="n">contain</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">body</span> <span class="n">row</span> <span class="mi">4</span> <span class="o">|</span>            <span class="o">|</span> <span class="o">-</span> <span class="n">blocks</span><span class="o">.</span> <span class="o">|</span>
+<span class="o">+------------+------------+-----------+</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 34%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Header 1</p></th>
+<th class="head"><p>Header 2</p></th>
+<th class="head"><p>Header 3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>body row 1</p></td>
+<td><p>column 2</p></td>
+<td><p>column 3</p></td>
+</tr>
+<tr class="row-odd"><td><p>body row 2</p></td>
+<td colspan="2"><p>Cells may span columns.</p></td>
+</tr>
+<tr class="row-even"><td><p>body row 3</p></td>
+<td rowspan="2"><p>Cells may
+span rows.</p></td>
+<td rowspan="2"><ul class="simple">
+<li><p>Cells</p></li>
+<li><p>contain</p></li>
+<li><p>blocks.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>body row 4</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>サンプル３</strong>：simple table</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">=====</span> <span class="o">=====</span> <span class="o">======</span>
+   <span class="n">Inputs</span>   <span class="n">Output</span>
+<span class="o">-----------</span> <span class="o">------</span>
+  <span class="n">A</span>      <span class="n">B</span>  <span class="n">A</span> <span class="ow">or</span> <span class="n">B</span>
+<span class="o">=====</span> <span class="o">=====</span> <span class="o">======</span>
+<span class="kc">False</span> <span class="kc">False</span> <span class="kc">False</span>
+<span class="kc">True</span>  <span class="kc">False</span> <span class="kc">True</span>
+<span class="kc">False</span> <span class="kc">True</span>  <span class="kc">True</span>
+<span class="kc">True</span>  <span class="kc">True</span>  <span class="kc">True</span>
+<span class="o">=====</span> <span class="o">=====</span> <span class="o">======</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 31%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><p>Inputs</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+<tr class="row-even"><th class="head"><p>A</p></th>
+<th class="head"><p>B</p></th>
+<th class="head"><p>A or B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>サンプル４</strong>: リストテーブル</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="nb">list</span><span class="o">-</span><span class="n">table</span><span class="p">::</span> <span class="n">テーブルタイトル</span>
+    <span class="p">:</span><span class="n">widths</span><span class="p">:</span> <span class="mi">15</span> <span class="mi">10</span> <span class="mi">30</span>
+    <span class="p">:</span><span class="n">header</span><span class="o">-</span><span class="n">rows</span><span class="p">:</span> <span class="mi">1</span>
+
+    <span class="o">*</span> <span class="o">-</span> <span class="n">head1</span>
+      <span class="o">-</span> <span class="n">head2</span>
+      <span class="o">-</span> <span class="n">head3</span>
+    <span class="o">*</span> <span class="o">-</span> <span class="n">td1</span>
+      <span class="o">-</span> <span class="n">td2</span>
+      <span class="o">-</span> <span class="n">td3</span>
+    <span class="o">*</span> <span class="o">-</span> <span class="n">td1</span>
+      <span class="o">-</span> <span class="n">td2</span>
+      <span class="o">-</span> <span class="n">td3</span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id33">
+<caption><span class="caption-number">表 2.1 </span><span class="caption-text">テーブルタイトル</span><a class="headerlink" href="#id33" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 18%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>head1</p></th>
+<th class="head"><p>head2</p></th>
+<th class="head"><p>head3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>td1</p></td>
+<td><p>td2</p></td>
+<td><p>td3</p></td>
+</tr>
+<tr class="row-odd"><td><p>td1</p></td>
+<td><p>td2</p></td>
+<td><p>td3</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id30">
+<h2><span class="section-number">2.19. </span>数式挿入<a class="headerlink" href="#id30" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">数式はLatex形式で記述できる。</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>方法１</strong>：文中挿入</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>この式は :math:`z(x) = \int_0^{\infty} f(x) dx` と書ける。
+</pre></div>
+</div>
+<p>この式は <span class="math notranslate nohighlight">\(z(x) = \int_0^{\infty} f(x) dx\)</span> と書ける。</p>
+<p><strong>方法２</strong>：行間挿入(数式のサイズと位置は指定できない)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">math</span><span class="p">::</span>
+
+    <span class="n">z</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&amp;=</span> \<span class="n">int_0</span><span class="o">^</span><span class="p">{</span>\<span class="n">infty</span><span class="p">}</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">dx</span><span class="p">,</span> \\
+         <span class="o">&amp;=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}z(x) &amp;= \int_0^{\infty} f(x) dx, \\
+     &amp;= 1\end{split}\]</div>
+<div class="line-block">
+<div class="line"><strong>方法３</strong>：行間挿入(ラベル付き)</div>
+<div class="line">まだよくわからない</div>
+</div>
+</div>
+<div class="section" id="id31">
+<h2><span class="section-number">2.20. </span>コードサンプルの表示<a class="headerlink" href="#id31" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">表示したい場所で<code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">code-block::</span> <span class="pre">{言語}</span></code>と宣言する。</div>
+<div class="line">オプション<code class="docutils literal notranslate"><span class="pre">:linenos:</span></code>は行番号の表示。</div>
+<div class="line">オプション<code class="docutils literal notranslate"><span class="pre">:emphasize-lines:</span></code>は強調表示する行番号の指定。</div>
+</div>
+<p><strong>構文</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">python</span>
+    <span class="p">:</span><span class="n">linenos</span><span class="p">:</span>
+    <span class="p">:</span><span class="n">emphasize</span><span class="o">-</span><span class="n">lines</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span><span class="mi">5</span>
+
+    <span class="k">def</span> <span class="nf">hoge</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    　　<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
+    　　　　<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hoge&quot;</span><span class="p">)</span>
+    　　<span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+    　　　　<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fuga&quot;</span><span class="p">)</span>
+    　　<span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">:</span>
+    　　　　<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;piyo&quot;</span><span class="p">)</span>
+    　　<span class="k">else</span><span class="p">:</span>
+    　　　　<span class="nb">print</span> <span class="n">a</span>
+
+    <span class="k">return</span> <span class="n">a</span>
+</pre></div>
+</div>
+<p><strong>出力</strong></p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hoge</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+　　<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
+<span class="hll">　　　　<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hoge&quot;</span><span class="p">)</span>
+</span>　　<span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+<span class="hll">　　　　<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fuga&quot;</span><span class="p">)</span>
+</span>　　<span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">:</span>
+　　　　<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;piyo&quot;</span><span class="p">)</span>
+　　<span class="k">else</span><span class="p">:</span>
+　　　　<span class="nb">print</span> <span class="n">a</span>
+
+<span class="k">return</span> <span class="n">a</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="appendix.html" class="btn btn-neutral float-right" title="3. Appendix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="install.html" class="btn btn-neutral float-left" title="1. 環境構築方法" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, @***
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

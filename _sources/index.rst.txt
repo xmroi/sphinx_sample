@@ -1,0 +1,27 @@
+.. **** documentation master file, created by
+   sphinx-quickstart on Thu Apr  9 11:26:00 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Sphinx 入門
+   :numbered: 3
+
+   /document_guide/install
+   /document_guide/instruction
+   /document_guide/appendix
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Docstring 入門
+   :numbered: 3
+
+   /docstring_guide/install
+   /docstring_guide/google_style_guide
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`

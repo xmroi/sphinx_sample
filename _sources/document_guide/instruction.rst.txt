@@ -1,0 +1,792 @@
+.. include:: definition.txt
+
+==================================================
+reStructuredTextの構文
+==================================================
+
+構文の確認は右上のView page sourceからでも出来るよ
+
+
+セクション構造
+==================================================
+| セクションを定義する記号は「= - ` : ' " ~ ^ _ * + #」の中から好きに選択。
+
+「セクション構造」セクションのサブセクション
+--------------------------------------------------
+**構文**
+
+::
+
+    セクション構造
+    ==================================================
+
+    「セクション構造」セクションのサブセクション
+    --------------------------------------------------
+
+
+リスト
+==================================================
+**構文**
+
+::
+
+    - aaa
+    - bbb
+    - ccc
+
+**出力**
+
+- aaa
+- bbb
+- ccc
+
+他の使い方。
+
+::
+
+    * aaa
+    * bbb
+    * ccc
+
+* aaa
+* bbb
+* ccc
+
+**数字付きリスト**
+
+::
+
+    1. aaa
+    2. bbb
+    #. ccc(番号の自動振り分け)
+
+1. aaa
+2. bbb
+#. ccc
+
+**入れ子とかいろいろ**
+
+::
+
+    あ. aaa
+
+        A. aaa
+        B. bbb
+        C. ccc
+
+    い bbb
+
+        i. aaa
+        ii. bbb
+        iii. ccc
+
+    う ccc
+
+        - aaa
+        - bbb
+        - ccc
+
+あ. aaa
+
+    A. aaa
+    B. bbb
+    C. ccc
+
+い bbb
+
+    i. aaa
+    ii. bbb
+    iii. ccc
+
+う ccc
+
+    - aaa
+    - bbb
+    - ccc
+
+**定義リスト**
+
+::
+
+    sphinx
+        sphinxsphinxsphinxsphinxsphinx
+    python
+        | pythonpythonpythonpythonpython
+        | pythonpythonpythonpythonpython
+
+sphinx
+    sphinxsphinxsphinxsphinxsphinx
+python
+    | pythonpythonpythonpythonpython
+    | pythonpythonpythonpythonpython
+
+::
+
+    * aaa
+        aaa
+    * bbb
+        bbb
+
+* aaa
+    aaa
+* bbb
+    bbb
+
+改行
+==================================================
+文頭に「\ ``|``\ 」+「スペース」を付ける。
+
+**構文**
+
+::
+
+    | aaa
+    | bbb
+
+**出力**
+
+| aaa
+| bbb
+
+インラインマークアップ
+==================================================
+リンクは別セクションに記載
+
+**構文**
+
+::
+
+    | *UTF-8*：斜体
+    | **強い強調**：太字
+    | ``強調``：インラインリテラル
+
+**出力**
+
+| *UTF-8*：斜体
+| **強い強調**：太字
+| ``強調``：インラインリテラル
+
+
+リテラルブロック
+==================================================
+| 「::」で宣言しブロックを作成する。
+| ブロック部分はインデントする必要があり、ブロック全体は空白行で前後を囲う。
+
+**構文(※ダブルコロンの次に空白行が必要)**
+
+::
+
+    ::
+        >1+1
+        2
+
+**出力**
+
+::
+
+    >1+1
+    2
+
+
+コメントアウト
+==================================================
+| 「..」で始めるとコメントアウトになる。
+| 次に同じインデントに戻るまでのブロックがまとめてコメントアウトされる。
+
+::
+
+    .. コメントアウト
+        次のインデントにもどるまで
+        まとめてコメントアウトされる
+
+.. コメントアウト
+    次のインデントに戻るまで
+    まとめてコメントアウトされる
+
+::
+
+    ..
+       これもコメントアウト
+    ..
+
+..
+   これもコメントアウト
+..
+
+
+空行追加
+==================================================
+「|」を使用する。
+
+::
+
+    |
+    |
+    |
+
+.. _link:
+
+リンク
+==================================================
+**スペースの非表示**
+
+| リンク構文の前後には「スペース」が必要。ただし、出力にもスペースが反映される。
+| スペースを表示したくない時は、スペースの前に\ ``\``\ を付けておく。
+
+::
+
+    リンク先は「 :ref:`link` 」。　　→　スペース残す
+    リンク先は「\ :ref:`link`\ 」。　→　スペース消す
+
+| リンク先は「 :ref:`link` 」。
+| リンク先は「\ :ref:`link`\ 」。
+
+内部リンク
+--------------------------------------------------
+| **A. クロスリファレンス**
+| セクション等の上部にアンカー\ ``.. _{ラベル}:``\を配置する。
+| 図表に対しても同様にアンカー出来る。
+
+**アンカー付け**
+
+::
+
+    .. _link:
+
+    リンク
+    ==================================================
+
+**構文**
+
+::
+
+    リンク先は\ :ref:`link`\ 。
+    :ref:`こういう書き方 <link>` もできる。
+    こういう書き方もできる(link_)。
+
+**出力**
+
+| リンク先は\ :ref:`link`\ 。
+| :ref:`こういう書き方 <link>` もできる。
+| こういう書き方もできる(link_)。
+
+| **B. ドキュメントリンク**
+| index.rstから見た他のrstファイルの相対パスを指定する。
+| ファイルの拡張子は付けない。
+
+::
+
+    リンク先は\ :doc:`./appendix`\ 。
+    リンク先は\ :doc:`あぺんでぃっくす <./appendix>`\ でも指定できる。
+
+| リンク先は\ :doc:`./appendix`\ 。
+| リンク先は\ :doc:`あぺんでぃっくす <./appendix>`\ でも指定できる。
+
+
+外部リンク
+--------------------------------------------------
+**構文１**
+
+::
+
+    これは\ `Google <https://www.google.co.jp/>`_\ へのリンクです。
+
+**出力１**
+
+これは\ `Google <https://www.google.co.jp/>`_\ へのリンクです。
+
+**構文２**
+
+::
+
+    .. _Google: https://www.google.co.jp/
+
+    これは\ `Google`_\ へのリンクです。
+
+
+**出力２**
+
+.. _Google: https://www.google.co.jp/
+
+これは\ `Google`_\ へのリンクです。
+
+
+
+用語の定義
+==================================================
+**方法１：文中で定義する**
+
+.. |ex1| replace:: 例1
+
+| 用語を使用するときは定義語|ex1|の両端にスペースが必要。
+| (そのままだとスペースが本文に反映されてしまう。「\」+「スペース」とすると)
+
+::
+
+    .. |ex1| replace:: 例1
+    定義した用語は「\ |ex1|\ 」。
+
+定義した用語は「\ |ex1|\ 」。
+
+.. _方法２:
+
+**方法２：定義した用語一覧を書いたファイルを外部から読み込む**
+
+| 定義した用語を使いたいrstファイルと同じディレクトリに、
+| 例えば「definition.txt」というファイルを置いて、
+| ファイル内には ``.. |ex2| replace:: 例2`` などと記述しておく。
+| 用語を読み込みたいときはrstファイルの先頭に ``.. include:: definition.txt`` を追加する。
+
+::
+
+    定義した用語は「\ |ex2|\ 」。
+
+定義した用語は「\ |ex2|\ 」。
+
+
+**方法３：定義した用語一覧を書いたファイルをconf.pyから設定し読み込む**
+
+| conf.pyに以下のように追加する。
+
+::
+
+    rst_prolog= u"""
+    .. include:: definition.txt
+    """
+
+(未解決)方法３の場合、「definition.txt」の場所を以下の図の2か所に置かないと参照できない。
+
+.. figure:: dir_define.png
+    :alt: Alternate Text
+
+    ディレクトリ構造と用語を定義した「definition.txt」ファイルの場所
+
+
+ファイルの定義
+==================================================
+**用語の定義** の\ :ref:`方法２<方法２>`\ で説明した通り。
+
+
+タイトルリファレンス
+==================================================
+
+::
+
+    :タイトル１: ほげほげ
+
+:タイトル１: ほげほげ
+
+
+ToDoを残す
+==================================================
+conf.pyに以下の様に設定。
+
+::
+
+    # sphinx.ext.todo モジュールを追加
+    extensions = ['sphinx.ext.todo']
+
+    # ToDo 項目を表示する(デフォルトは表示しない; False)
+    todo_include_todos = True
+
+ToDoは以下の様に書く。
+
+::
+
+    .. todo:: 後で書く
+
+.. todo:: 後で書く
+
+
+注釈・警告の挿入
+==================================================
+
+::
+
+    .. note::
+       注釈です
+
+    .. warning::
+       警告です！
+
+.. note::
+   注釈です
+
+.. warning::
+   警告です！
+
+
+脚注
+==================================================
+| 脚注を書きたい場所で\ ``[#name]_``\ と書く。
+| nameの部分は必ずしも必要ではなく、#だけの場合は自動的に番号が振られる
+
+::
+
+    脚注 [#f1]_ はこんな感じです。
+
+    .. [#f1] これが脚注です。
+
+脚注 [#f1]_ はこんな感じです。
+
+.. [#f1] これが脚注です。
+
+
+引用
+==================================================
+引用を付けたい場所で\ ``[name]_``\ と書く。
+
+::
+
+    引用はこうする\ [Ref]_\ 。
+
+    .. [Ref] 引用元。
+
+引用はこうする\ [Ref]_\ 。
+
+.. [Ref] 引用元。
+
+
+用語集
+==================================================
+定義リストとの違いは
+
+    | 一つの定義文に対して複数の用語を定義出来る。
+    | 索引に表示できる。
+
+::
+
+    .. glossary::
+
+       environment
+          A structure where information about all documents under the root is
+          saved, and used for cross-referencing.  The environment is pickled
+          after the parsing stage, so that successive runs only need to read
+          and parse new and changed documents.
+
+       source directory
+          The directory which, including its subdirectories, contains all
+          source files for one Sphinx project.
+
+       term 1
+       term 2
+          Definition of both terms.
+
+.. glossary::
+
+   environment
+      A structure where information about all documents under the root is
+      saved, and used for cross-referencing.  The environment is pickled
+      after the parsing stage, so that successive runs only need to read
+      and parse new and changed documents.
+
+   source directory
+      The directory which, including its subdirectories, contains all
+      source files for one Sphinx project.
+
+   term 1
+   term 2
+      Definition of both terms.
+
+索引への反映方法
+--------------------------------------------------
+| (環境構築時)
+| ドキュメントセットを作成した時に、自動的にindex.rstに以下の行が生成されている。
+| もし生成されていなければ、追記して用語を定義するだけで自動的に反映してくれる。
+| 索引へのリンクはホームページに表示される。
+
+::
+
+    Indices and tables
+    ==================
+
+    * :ref:`genindex`
+
+
+画像挿入
+==================================================
+imageはtableなどと組み合わせることもできる。
+
+**構文**
+
+::
+
+    .. image:: {相対パス}
+       :scale: 60
+       :width: 50%
+       :height: 50%
+       :align: middle
+       :target: https://www.sphinx-doc.org/ja/master/
+
+キャプションを付ける場合はimageをfigureに変更する。
+
+::
+
+    .. figure:: {相対パス}
+        :alt: Alternate Text(画像の短い説明)
+
+        {キャプション}
+
+| パラメータは以下の通り。
+
+* scale：画像の縮尺
+* width：横幅
+* height：縦幅
+* align：配置指定
+* target：画像にリンクを貼る
+
+widthとheightは ``"%", "em", "ex", "px", "in", "cm", "mm", "pt", "pc"`` の中から選択可能
+(何も付けていない場合は ``"px"`` となる)。
+alignは ``“left”, “center”, “right”`` が選択可能。
+
+**出力**
+
+.. _FigLink:
+
+.. figure:: dir.png
+    :name: graph
+    :alt: Alternate Text
+
+    ディレクトリ構造
+
+
+図番号の自動割り振りとリンク
+--------------------------------------------------
+| ・自動割り振り
+| conf.pyに\ ``numfig = True``\ を追加設定する。
+
+::
+
+    .. figure:: {相対パス}
+        :name: {ラベル}
+
+    ・参照方法
+    こうする -> :numref:`{ラベル}`
+
+| ・参照方法
+| こうする -> :numref:`graph`
+
+キャプションへのリンク
+--------------------------------------------------
+
+::
+
+    .. _FigLink:
+
+    .. figure:: {相対パス}
+        :name: graph
+        :alt: Alternate Text
+
+        ディレクトリ構造
+
+::
+
+    | リンク先は「\ :ref:`FigLink`\ 」。
+    | :ref:`こういう書き方 <FigLink>` もできる。
+
+
+| リンク先は「\ :ref:`FigLink`\ 」。
+| :ref:`こういう書き方 <FigLink>` もできる。
+
+文章中への画像の埋め込み
+--------------------------------------------------
+
+::
+
+    .. |こうする| image:: dir.png
+
+    文章中に画像を埋め込みたい場合は |こうする| 。
+
+
+表挿入
+==================================================
+
+**サンプル１**：csv-table
+
+::
+
+    .. csv-table::
+        :header: , A, B, C, A and B
+        :header-rows: 0
+        :widths: 30, 20, 20, 15, 15
+        :stub-columns: 1
+
+        none, False, False, False, False
+        none, True, False, False, False
+        none, False, True, False,
+            , True, True, True, True
+        none, True, False, False, True
+
+.. csv-table::
+    :header: , A, B, C, A and B
+    :header-rows: 0
+    :widths: 30, 20, 20, 15, 15
+    :stub-columns: 1
+
+    none, False, False, False, False
+    none, True, False, False, False
+    none, False, True, False,
+        , True, True, True, True
+    none, True, False, False, True
+
+**サンプル２**：Grid table
+
+::
+
+    +------------+------------+-----------+
+    | Header 1   | Header 2   | Header 3  |
+    +============+============+===========+
+    | body row 1 | column 2   | column 3  |
+    +------------+------------+-----------+
+    | body row 2 | Cells may span columns.|
+    +------------+------------+-----------+
+    | body row 3 | Cells may  | - Cells   |
+    +------------+ span rows. | - contain |
+    | body row 4 |            | - blocks. |
+    +------------+------------+-----------+
+
++------------+------------+-----------+
+| Header 1   | Header 2   | Header 3  |
++============+============+===========+
+| body row 1 | column 2   | column 3  |
++------------+------------+-----------+
+| body row 2 | Cells may span columns.|
++------------+------------+-----------+
+| body row 3 | Cells may  | - Cells   |
++------------+ span rows. | - contain |
+| body row 4 |            | - blocks. |
++------------+------------+-----------+
+
+**サンプル３**：simple table
+
+::
+
+    ===== ===== ======
+       Inputs   Output
+    ----------- ------
+      A      B  A or B
+    ===== ===== ======
+    False False False
+    True  False True
+    False True  True
+    True  True  True
+    ===== ===== ======
+
+===== ===== ======
+   Inputs   Output
+----------- ------
+  A      B  A or B
+===== ===== ======
+False False False
+True  False True
+False True  True
+True  True  True
+===== ===== ======
+
+**サンプル４**: リストテーブル
+
+::
+
+    .. list-table:: テーブルタイトル
+        :widths: 15 10 30
+        :header-rows: 1
+
+        * - head1
+          - head2
+          - head3
+        * - td1
+          - td2
+          - td3
+        * - td1
+          - td2
+          - td3
+
+.. list-table:: テーブルタイトル
+    :widths: 15 10 30
+    :header-rows: 1
+
+    * - head1
+      - head2
+      - head3
+    * - td1
+      - td2
+      - td3
+    * - td1
+      - td2
+      - td3
+
+
+数式挿入
+==================================================
+| 数式はLatex形式で記述できる。
+
+| **方法１**：文中挿入
+
+::
+
+    この式は :math:`z(x) = \int_0^{\infty} f(x) dx` と書ける。
+
+この式は :math:`z(x) = \int_0^{\infty} f(x) dx` と書ける。
+
+**方法２**：行間挿入(数式のサイズと位置は指定できない)
+
+::
+
+    .. math::
+
+        z(x) &= \int_0^{\infty} f(x) dx, \\
+             &= 1
+
+.. math::
+
+    z(x) &= \int_0^{\infty} f(x) dx, \\
+         &= 1
+
+| **方法３**：行間挿入(ラベル付き)
+| まだよくわからない
+
+
+コードサンプルの表示
+==================================================
+| 表示したい場所で\ ``.. code-block:: {言語}``\ と宣言する。
+| オプション\ ``:linenos:``\ は行番号の表示。
+| オプション\ ``:emphasize-lines:``\は強調表示する行番号の指定。
+
+**構文**
+
+::
+
+    .. code-block:: python
+        :linenos:
+        :emphasize-lines: 3,5
+
+        def hoge(a):
+        　　if a < b:
+        　　　　print("hoge")
+        　　elif a > b:
+        　　　　print("fuga")
+        　　elif a == b:
+        　　　　print("piyo")
+        　　else:
+        　　　　print a
+
+        return a
+
+**出力**
+
+.. code-block:: python
+    :linenos:
+    :emphasize-lines: 3,5
+
+    def hoge(a):
+    　　if a < b:
+    　　　　print("hoge")
+    　　elif a > b:
+    　　　　print("fuga")
+    　　elif a == b:
+    　　　　print("piyo")
+    　　else:
+    　　　　print a
+
+    return a
+
