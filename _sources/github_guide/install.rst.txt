@@ -1,0 +1,65 @@
+
+前準備
+==================================================
+- githubの登録
+- リモートリポジトリ「**shpinx_sample**」を作成
+
+
+
+ローカルリポジトリの作成
+==================================================
+1.  ``make html`` でビルドすると /build/html にファイル群が作成される。
+2. /build/html 以下に移動。
+3. ローカルリポジトリの作成。
+4. 全てのファイルをインデックスに追加。
+5. コミット。
+6. リモートリポジトリを追加。
+7. プッシュ。
+
+git commandでは以下の通り。
+
+::
+
+    > cd /build/html
+    > git init
+    > git add .
+    > git commit -m "first commit"
+    > git remote add origin https://github.com/ユーザー名/sphinx_sample.git
+    > git push -u origin master
+
+.. note::
+    リモートリポジトリを作成したときに、README.md等を追加してると、上記pushに失敗する。
+    README.mdの差分を追加するためには以下の様にpullしてからpushするといい。
+    
+    ::
+    
+        git pull --allow-unrelated-histories origin master
+
+プッシュしただけだとCSSが有効にならないため、以下の操作を追加。
+
+8. ブランチ「**gh-pages**」を作成・移動。(任意)
+9. 名前が「**.nojekyll**」の空ファイルを作成する。(/build/html下)
+10. 上記ファイルをadd。
+11. gh-pagesをpush。
+
+::
+
+    > git checkout -b gh-pages
+    > touch .nojekyll
+    > git commit -a -m "Add .nojekyll"
+    > git push origin gh-pages
+
+GitHub側の設定
+==================================================
+1. GitHubの **shpinx_sample** リポジトリのsettingページにGitHub Pagesの項目に移動。
+2. Sourceを.nojekyllファイルがあるブランチに設定。(ここではgh-pages)
+3. Select Folderが選択できる場合は設定。(rootのままでよい)
+4. Saveを押す。
+
+設定が上手くいっていれば、グリーンチェックマークとSourceの上に以下のリンクが表示される。
+
+::
+
+    Your site is published at https://{ユーザー名}.github.io/sphinx_sample/
+
+
