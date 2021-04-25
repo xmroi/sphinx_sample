@@ -1,1 +1,1 @@
-# sphinx_sample
+# sphinxの使い方
